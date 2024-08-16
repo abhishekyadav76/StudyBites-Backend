@@ -27,10 +27,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
 	cors({
-		origin: process.env.ORIGIN,
+		origin: process.env.ORIGIN?.split(','),
 		credentials: true,
 	})
 );
+// console.log(process.env.ORIGIN?.split(','))
+
 app.use(
 	fileUpload({
 		useTempFiles: true,
